@@ -1,0 +1,21 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /home/ubuntu/Django-code
+    overwrite: yes
+
+hooks:
+  BeforeInstall:
+    - location: scripts/stop_app.sh
+      timeout: 60
+      runas: ubuntu
+  AfterInstall:
+    - location: scripts/install_dependencies.sh
+      timeout: 60
+      runas: ubuntu
+  ApplicationStart:
+    - location: scripts/start_app.sh
+      timeout: 300
+      runas: ubuntu
+
