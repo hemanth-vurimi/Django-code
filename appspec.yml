@@ -4,7 +4,19 @@ files:
   - source: /
     destination: /home/ubuntu/Django-code
     overwrite: yes
-
+permissions:
+  - object: /home/ubuntu/Django-code
+    pattern: "**"
+    owner: ubuntu
+    group: ubuntu
+permissions:
+  - object: /home/ubuntu/Django-code/scripts
+    pattern: "**"
+    owner: ubuntu
+    group: ubuntu
+    mode: 777
+    type:
+      - file
 hooks:
   BeforeInstall:
     - location: scripts/stop_app.sh
