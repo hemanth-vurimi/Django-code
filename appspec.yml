@@ -1,11 +1,12 @@
 version: 0.0
 os: linux
+
 files:
   - source: /
     destination: /home/ubuntu/Django-code
     overwrite: yes
 file_exists_behavior: OVERWRITE
- 
+
 permissions:
   - object: /home/ubuntu/Django-code
     pattern: "**"
@@ -15,19 +16,11 @@ permissions:
     pattern: "**"
     owner: ubuntu
     group: ubuntu
-    mode: 777
+    mode: 755
     type:
       - file
 
 hooks:
-  #BeforeInstall:
-   # - location: scripts/stop_app.sh
-    #  timeout: 60
-     # runas: ubuntu
-  #AfterInstall:
-   # - location: scripts/install_dependencies.sh
-    #  timeout: 60
-     # runas: ubuntu
   ApplicationStart:
     - location: scripts/start_app.sh
       timeout: 300
