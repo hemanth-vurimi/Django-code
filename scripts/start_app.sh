@@ -6,5 +6,5 @@ cd /home/ubuntu/Django-code
 fuser -k 8000/tcp
 
 # Start Django with nohup
-nohup python manage.py runserver 0.0.0.0:8000 > server.log 2>&1 &
+nohup python3 manage.py runserver 0.0.0.0:8000 > server.log 2>&1 &
 
