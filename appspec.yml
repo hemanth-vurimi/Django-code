@@ -4,12 +4,12 @@ files:
   - source: /
     destination: /home/ubuntu/Django-code
     overwrite: yes
+
 permissions:
   - object: /home/ubuntu/Django-code
     pattern: "**"
     owner: ubuntu
     group: ubuntu
-permissions:
   - object: /home/ubuntu/Django-code/scripts
     pattern: "**"
     owner: ubuntu
@@ -17,15 +17,16 @@ permissions:
     mode: 777
     type:
       - file
+
 hooks:
-  BeforeInstall:
-    - location: scripts/stop_app.sh
-      timeout: 60
-      runas: ubuntu
-  AfterInstall:
-    - location: scripts/install_dependencies.sh
-      timeout: 60
-      runas: ubuntu
+  #BeforeInstall:
+   # - location: scripts/stop_app.sh
+    #  timeout: 60
+     # runas: ubuntu
+  #AfterInstall:
+   # - location: scripts/install_dependencies.sh
+    #  timeout: 60
+     # runas: ubuntu
   ApplicationStart:
     - location: scripts/start_app.sh
       timeout: 300

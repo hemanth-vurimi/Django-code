@@ -1,3 +1,3 @@
 #!/bin/bash
 echo "Stopping Django app..."
-pkill -f gunicorn
+fuser -k 8000/tcp 
